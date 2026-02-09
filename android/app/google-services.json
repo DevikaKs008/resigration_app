@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "828889639889",
+    "project_id": "registration-backend-f81ba",
+    "storage_bucket": "registration-backend-f81ba.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828889639889:android:a6e3f3d2c5bb61b1fd4ef0",
+        "android_client_info": {
+          "package_name": "com.example.resigration_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuCecnXNmhg726uU6UTfICoTS2UDl2VV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

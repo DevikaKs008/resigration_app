@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:resigration_app/login.dart';
+import 'package:resigration_app/service.dart';
 import 'package:resigration_app/welcome.dart';
 
-class Signup extends StatelessWidget {
+class Signup extends StatefulWidget {
   const Signup({super.key});
 
+  @override
+  State<Signup> createState() => _SignupState();
+}
+
+class _SignupState extends State<Signup> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +47,7 @@ class Signup extends StatelessWidget {
 
               SizedBox(height: 10),
               TextField(
+                controller: usernameController,
                 decoration: InputDecoration(
                   fillColor: const Color.fromARGB(255, 218, 213, 213),
                   filled: true,
@@ -52,6 +62,7 @@ class Signup extends StatelessWidget {
               Align(alignment: Alignment.topLeft, child: Text("EMAIL")),
               SizedBox(height: 10),
               TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                   fillColor: const Color.fromARGB(255, 218, 213, 213),
                   filled: true,
@@ -66,6 +77,7 @@ class Signup extends StatelessWidget {
               Align(alignment: Alignment.topLeft, child: Text("PASSWORD")),
               SizedBox(height: 10),
               TextField(
+                controller: passwordController,
                 decoration: InputDecoration(
                   fillColor: const Color.fromARGB(255, 218, 213, 213),
                   filled: true,
@@ -107,9 +119,11 @@ class Signup extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.push(
+                    register(
+                      emailController.text,
+                      passwordController.text,
+                      usernameController.text,
                       context,
-                      MaterialPageRoute(builder: (context) => Welcome()),
                     );
                   },
                   child: Text(
