@@ -14,6 +14,9 @@ class _SignupState extends State<Signup> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isvisible = true;
+  bool notvisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,8 +80,19 @@ class _SignupState extends State<Signup> {
               Align(alignment: Alignment.topLeft, child: Text("PASSWORD")),
               SizedBox(height: 10),
               TextField(
+                obscureText: isvisible,
                 controller: passwordController,
                 decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isvisible = !isvisible;
+                      });
+                    },
+                    icon: isvisible
+                        ? Icon(Icons.visibility_off)
+                        : Icon(Icons.visibility),
+                  ),
                   fillColor: const Color.fromARGB(255, 218, 213, 213),
                   filled: true,
                   labelStyle: TextStyle(color: Colors.black),
@@ -95,7 +109,18 @@ class _SignupState extends State<Signup> {
               ),
               SizedBox(height: 10),
               TextField(
+                obscureText: notvisible,
                 decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        notvisible = !notvisible;
+                      });
+                    },
+                    icon: notvisible
+                        ? Icon(Icons.visibility_off)
+                        : Icon(Icons.visibility),
+                  ),
                   fillColor: const Color.fromARGB(255, 218, 213, 213),
                   filled: true,
                   labelStyle: TextStyle(color: Colors.black),
